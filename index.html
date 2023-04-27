@@ -24,8 +24,23 @@
         <div class="tile is-ancestor">
             <div class="tile is-parent is-12">
                 <article class="tile is-child notification is-warning">
-                    <p class="title">Title</p>
-                    <p class="subtitle">. . .</p>
+                    <form>
+                        <label for="city">Enter City Name:</label>
+                        <input type="text" id="city" name="city" placeholder="">
+                        <button type="submit">Search</button>
+                      </form>
+                      <div id="weather-data">
+                        <div id="city-info">
+                          <h3 id="city-name"></h3>
+                          <p id="date"></p>
+                        </div>
+                        <div id="weather-info">
+                          <div id="icon"></div>
+                          <p id="temperature"></p>
+                          <p id="humidity"></p>
+                          <p id="wind-speed"></p>
+                        </div>
+                      </div>
                 </article>
             </div>
         </div>
@@ -50,6 +65,7 @@
                     <p class="subtitle">. . .</p>
                 </article>
             </div>
+            
         </div>
     </div>
   </section>
