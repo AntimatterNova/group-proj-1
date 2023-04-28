@@ -5,9 +5,10 @@ var googleSearchBtn = document.getElementById('google-search-btn');
 
 googleSearchBtn.addEventListener('click', function () {
     // Get value of input field
+    var searchInput = document.getElementById('searchInput').value
     // Store value as variable
     // Pass value into function
-    googleSearchNewTab(mockInput)
+    googleSearchNewTab(searchInput)
 
 })
 
