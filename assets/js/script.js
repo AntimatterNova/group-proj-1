@@ -92,3 +92,21 @@ document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
     getCityInfo(this.city.value);
 });
+
+// modal
+// Grab search button, modal div, and background
+
+var searchButton = document.querySelector('#search');
+var modalBg = document.querySelector('.modal-background');
+var modal = document.querySelector('.modal')
+
+searchButton.addEventListener('click', () => {
+    modal.classList.add('is-active');
+});
+
+modalBg.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+});
+
+
+

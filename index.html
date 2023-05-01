@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weekender</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
   </head>
   <body class="has-background-black">
   <section class="section">
@@ -25,9 +26,12 @@
             <div class="tile is-parent is-12">
                 <article class="tile is-child notification is-warning">
                     <form>
+
+                       
+
                         <label for="city">Enter City Name:</label>
                         <input type="text" id="city" name="city" placeholder="">
-                        <button type="submit">Search</button>
+                        <button type="submit" id="search">Search</button>
                       </form>
                       <div id="weather-data">
                         <div id="city-info">
@@ -69,6 +73,28 @@
         </div>
     </div>
   </section>
+
+  <!-- modal -->
+  <div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-content has-background-white py-5 px-5">
+      <h3 class="title mb-6">Please enter a city</h3>
+      <form>
+        <div class="field">
+            <label class="label">City</label>
+            <div class="control">
+                <input type="text" class="input" placeholder="city">
+            </div>
+        </div>
+        <div class="mt-6 has-text-centered">
+            <button class="button is-warning">Submit</button>
+        </div> 
+      </form>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+
   <script src="./assets/js/script.js"></script>
   </body>
 </html>
