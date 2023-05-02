@@ -1,3 +1,6 @@
+var submitInput = document.querySelector('#city').value;
+
+
 // Google Custom Search API
 var apiKey = "AIzaSyBYCL5vLcrfUfLD6ecGYRaDjEL8jdv0yuo";
 var apiUrl = "https://www.googleapis.com/customsearch/v1?[parameters]";
@@ -88,25 +91,23 @@ function getCityInfo(city) {
     //
 };
 
-document.querySelector('form').addEventListener('submit', function (event) {
-    event.preventDefault();
-    getCityInfo(this.city.value);
-});
+// document.querySelector('form').addEventListener('submit', function (event) {
+//     event.preventDefault();
+//     getCityInfo(this.city.value);
+// });
 
 // modal
 // Grab search button, modal div, and background
 
 var searchButton = document.querySelector('#search');
-var modalBg = document.querySelector('.modal-background');
-var modal = document.querySelector('.modal')
 
-searchButton.addEventListener('click', () => {
-    modal.classList.add('is-active');
+searchButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    submitInput = document.querySelector('#city').value
+    getCityInfo(submitInput)
+    document.querySelector('#city').value=''
 });
 
-modalBg.addEventListener('click', () => {
-    modal.classList.remove('is-active');
-});
 
 
 
