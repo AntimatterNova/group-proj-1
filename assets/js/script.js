@@ -118,6 +118,7 @@ function createWeatherCard(firstCard) {
     var cardEl = document.createElement('article');
     cardEl.setAttribute('class', 'card m-3');
     cardEl.setAttribute('id', 'city-info')
+    cardEl.setAttribute('class', 'has-text-centered')
 
     var bodyEl = document.createElement('div');
     bodyEl.setAttribute('class', 'card-body bg-warning text-black');
@@ -127,11 +128,11 @@ function createWeatherCard(firstCard) {
     //
 
     var cityNameEl = document.createElement('h3');
-    cityNameEl.setAttribute('class', 'card-title');
+    cityNameEl.setAttribute('class', 'is-size-1 has-text-weight-bold');
     cityNameEl.textContent = submitInput;
 
     var dateEl = document.createElement('p');
-    dateEl.setAttribute('class', 'card-title');
+    dateEl.setAttribute('class', 'is-size-3');
     dateEl.innerHTML = dayjs().add(0, 'day').format('MMMM, D, YYYY');
     //
     var divTwoEl = document.createElement('div');
@@ -146,15 +147,15 @@ function createWeatherCard(firstCard) {
     divThreeEl.setAttribute('id', 'temp-wind-humidity');
     //
     var tempEl = document.createElement('p');
-    tempEl.setAttribute('class', 'card-text');
+    tempEl.setAttribute('class', 'is-size-3');
     tempEl.textContent = 'Temp: ' + firstCard.main.temp + ' degrees';
 
     var windEl = document.createElement('p');
-    windEl.setAttribute('class', 'card-text');
+    windEl.setAttribute('class', 'is-size-3');
     windEl.textContent = 'Wind: ' + firstCard.wind.speed + ' mph';
 
     var humidityEl = document.createElement('p');
-    humidityEl.setAttribute('class', 'card-text');
+    humidityEl.setAttribute('class', 'is-size-3');
     humidityEl.textContent = 'Humidity: ' + firstCard.main.humidity + ' percent';
 
     divOneEl.append(cityNameEl, dateEl);
@@ -182,26 +183,25 @@ function renderWeatherStrip(cardOne) {
 
 function createNewsCard(headlines) {
 
-    var tileEl = document.createElement('article');
-    tileEl.setAttribute('class', 'card m-3 news-card');
-    tileEl.setAttribute('style', 'width: 18rem');
-
     var bodyEl = document.createElement('div');
-    bodyEl.setAttribute('class', 'card-body text-white');
+    bodyEl.setAttribute('class', 'tile is-parent is-4');
+
+    var tileEl = document.createElement('article');
+    tileEl.setAttribute('class', 'tile is-child notification is-info');
 
     var headlineEl = document.createElement('p');
-    headlineEl.setAttribute('class', 'card-text');
+    headlineEl.setAttribute('class', 'title');
     headlineEl.textContent = 'hello';
 
     var storyEl = document.createElement('p');
-    storyEl.setAttribute('class', 'card-text');
+    storyEl.setAttribute('class', '');
     storyEl.textContent = headlines.url;
 
-    bodyEl.append(headlineEl, storyEl);
+    tileEl.append(headlineEl, storyEl);
 
-    tileEl.append(bodyEl);
+    bodyEl.append(tileEl);
 
-    return tileEl;
+    return bodyEl;
 };
 
 
