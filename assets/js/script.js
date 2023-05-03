@@ -55,9 +55,9 @@ function getCityInfo(city) {
         })
         .then(function (data) {
             console.log('data :>>', data);
-            var dump = document.createElement('pre');
-            dump.textContent = JSON.stringify(data.articles[0], null, 2);
-            document.body.appendChild(dump);
+            // var dump = document.createElement('pre');
+            // dump.textContent = JSON.stringify(data.articles[0], null, 2);
+            // document.body.appendChild(dump);
 
             console.log(data.articles);
 
@@ -80,9 +80,9 @@ function getCityInfo(city) {
         })
         .then(function (data) {
             console.log('data :>>', data);
-            var dump = document.createElement('pre');
-            dump.textContent = JSON.stringify(data.list, null, 2);
-            document.body.appendChild(dump);
+            // var dump = document.createElement('pre');
+            // dump.textContent = JSON.stringify(data.list, null, 2);
+            // document.body.appendChild(dump);
 
             renderWeatherStrip(data.list);
 
@@ -185,17 +185,18 @@ function createNewsCard(headlines) {
 
     var bodyEl = document.createElement('div');
     bodyEl.setAttribute('class', 'tile is-parent is-4');
+    bodyEl.setAttribute('id', 'news-box')
 
     var tileEl = document.createElement('article');
     tileEl.setAttribute('class', 'tile is-child notification is-info');
 
-    var headlineEl = document.createElement('p');
+    var headlineEl = document.createElement('a');
     headlineEl.setAttribute('class', 'title');
-    headlineEl.textContent = 'hello';
+    headlineEl.textContent = headlines.title;
+    headlineEl.setAttribute('href', headlines.url)
 
-    var storyEl = document.createElement('p');
-    storyEl.setAttribute('class', '');
-    storyEl.textContent = headlines.url;
+    var storyEl = document.createElement('a');
+    storyEl.textContent = headlines.summary;
 
     tileEl.append(headlineEl, storyEl);
 
@@ -206,7 +207,7 @@ function createNewsCard(headlines) {
 
 
 function renderNewsData(newsArticles) {
-    var clearScreen = document.querySelectorAll('.news-card');
+    var clearScreen = document.querySelectorAll('#news-box');
     if (clearScreen.length) {
         clearScreen.forEach(el => {
             el.remove();
@@ -214,7 +215,7 @@ function renderNewsData(newsArticles) {
 
     }
     var resultsEl = document.getElementById('news-tiles');
-    for (i = 0; i < 3; i++) {
+    for (i = 1; i < 4; i++) {
         var newsCard = createNewsCard(newsArticles[i]);
 
         resultsEl.append(newsCard);
