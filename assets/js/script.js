@@ -195,7 +195,7 @@ function createNewsCard(headlines) {
     headlineEl.textContent = headlines.title;
     headlineEl.setAttribute('href', headlines.url)
 
-    var storyEl = document.createElement('a');
+    var storyEl = document.createElement('p');
     storyEl.textContent = headlines.summary;
 
     tileEl.append(headlineEl, storyEl);
